@@ -75,8 +75,6 @@ def sidebar_update():
             project_id_selected = project['id']
             st.session_state["project_id_selected"] = project_id_selected
 
-
-
 # Create streaming Object from Response
 def response_generator(response_str):
     full_response = ""
@@ -114,7 +112,20 @@ with st.sidebar:
         # Set the value of the session state variable 'chat_id' to the result of calling create_chat()
         # with the 'project_id_selected' value from the session state
         st.session_state['chat_id'] = create_chat(st.session_state["project_id_selected"])
-
+    st.html("""
+    <!doctype html>
+    <html lang="en">
+    <head>
+    	<meta charset="utf-8"/>
+    <title>AAI Enterprise Knowledge</title>
+    </head>
+    <body>
+    <center>
+    <br><br>
+    <img src=https://www.automationanywhere.com/sites/default/files/images/products/product-index/pathfinder-tab.png width=250>
+    </center>
+    </html>
+""")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -132,7 +143,7 @@ for message in st.session_state.messages:
 
 
 # Accept user input
-if prompt := st.chat_input("¿Qué pasa?"):
+if prompt := st.chat_input("Hola, ¿Cómo puedo ayudarte?"):
     # Add user message to chat history
     session_state_test = st.session_state
     # Check if a chat ID has been set in the session state.
