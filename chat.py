@@ -64,7 +64,7 @@ get_projects()
 @st.experimental_fragment
 def sidebar_update():
     project_name = st.selectbox(
-        "Select Project name",
+        "Selecciona el nombre del proyecto",
         project_ids,
         index=None,
         placeholder="Select Project name...",
@@ -108,7 +108,7 @@ with st.sidebar:
     # Call the sidebar_update() function decorator
     sidebar_update()
     # Create a primary button in the sidebar with the label "Create a new Chat"
-    if st.button("Create a new Chat", type="primary"):
+    if st.button("Crear un nuevo Chat", type="primary"):
         clear_session_state()
         clear_session_state()
         # Set the value of the session state variable 'chat_id' to the result of calling create_chat()
@@ -132,7 +132,7 @@ for message in st.session_state.messages:
 
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("¿Qué pasa?"):
     # Add user message to chat history
     session_state_test = st.session_state
     # Check if a chat ID has been set in the session state.
@@ -180,5 +180,3 @@ if prompt := st.chat_input("What is up?"):
         st.session_state.messages.append({"role": "assistant", "image": images})
     else:
         st.session_state.messages.append({"role": "assistant", "content": response_message})
-
-
