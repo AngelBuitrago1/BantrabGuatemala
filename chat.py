@@ -60,7 +60,6 @@ def get_projects():
 
 # Call Projects function to fill the select-box element
 get_projects()
-print(project_ids)
 
 
 @st.experimental_fragment
