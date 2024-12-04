@@ -54,11 +54,13 @@ def get_projects():
     projects = [project for project in projects_json['projects']]
     global project_ids
     project_ids = [project['name'] for project in projects_json['projects']]
+    project_ids = project_ids[1],project_ids[11]
     return projects, project_ids
 
 
 # Call Projects function to fill the select-box element
 get_projects()
+print(project_ids)
 
 
 @st.experimental_fragment
@@ -67,7 +69,7 @@ def sidebar_update():
         "Selecciona el nombre del proyecto",
         project_ids,
         index=None,
-        placeholder="Select Project name...",
+        placeholder="Seleciona tu AI Agent...",
     )
 
     for project in projects:
@@ -75,12 +77,14 @@ def sidebar_update():
             project_id_selected = project['id']
             st.session_state["project_id_selected"] = project_id_selected
 
+
 # Create streaming Object from Response
 def response_generator(response_str):
     full_response = ""
     for word in response_str:
         time.sleep(0.01)
         yield word
+
 
 st.set_page_config(page_title='Banco Popular - Automation Anywhere - AAI Agent', page_icon = 'https://chat-beta.automationanywhere.com/assets/icon/favicon.ico', layout='wide')
 st.header("Banco Popular - Automation Anywhere - AAI Agentic")
@@ -100,6 +104,7 @@ st.html("""
     </center>
     </html>
 """)
+
 
 # Create a sidebar using Streamlit's built-in function
 with st.sidebar:
@@ -127,9 +132,11 @@ with st.sidebar:
     </html>
 """)
 
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
