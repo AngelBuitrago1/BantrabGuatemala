@@ -107,6 +107,7 @@ st.html("""
 
 # Create a sidebar using Streamlit's built-in function
 with st.sidebar:
+    st.header('The :orange[_AI + Automation_] :blue[Enterprise System] :rocket:')
     # Call the sidebar_update() function decorator
     sidebar_update()
     # Create a primary button in the sidebar with the label "Create a new Chat"
@@ -127,6 +128,7 @@ with st.sidebar:
     <center>
     <br><br>
     <img src=https://www.automationanywhere.com/sites/default/files/images/products/product-index/pathfinder-tab.png width=250>
+    <br>Le ayudamos a automatizar lo imposible con agentes de IA
     </center>
     </html>
 """)
