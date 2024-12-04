@@ -66,7 +66,7 @@ print(project_ids)
 @st.experimental_fragment
 def sidebar_update():
     project_name = st.selectbox(
-        "Selecciona el nombre del proyecto",
+        "Selecciona el nombre del proyecto de Enterprise Knowledge",
         project_ids,
         index=None,
         placeholder="Seleciona tu AI Agent...",
@@ -159,7 +159,7 @@ if prompt := st.chat_input("Hola, ¿Cómo puedo ayudarte?"):
         # If no chat ID, but a project ID has been selected, create a new chat.
         if session_state_test.get('project_id_selected', 0) == 0:
             # Display a toast message prompting the user to select a project.
-            st.toast('Select a project first', icon='🚨')
+            st.toast('Selecciona un proyecto primero', icon='🚨')
             st.stop()
         else:
             # Create a new chat with the selected project ID and set it as the chat ID.
